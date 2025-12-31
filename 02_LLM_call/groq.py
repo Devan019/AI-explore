@@ -11,7 +11,7 @@ if __name__ == "__main__":
     messages=[
       {
         "role":"user",
-        "content" : "Hey bro!!!, who r u"
+        "content" : "A juggler can juggle 16 balls. Half of the balls are golf balls, and half of the golf balls are blue. How many blue golf balls are there?"
       }
     ]
   )
