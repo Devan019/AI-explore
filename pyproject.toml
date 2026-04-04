@@ -13,6 +13,7 @@ dependencies = [
     "langchain-qdrant>=1.1.0",
     "langchain-text-splitters>=1.1.0",
     "langgraph>=1.0.8",
+    "mem0ai>=1.0.10",
     "openai>=2.14.0",
     "pydantic>=2.12.5",
     "pypdf>=6.5.0",

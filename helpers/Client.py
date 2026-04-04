@@ -22,7 +22,7 @@ class GroqClient():
     load_dotenv()
     self._client = OpenAI(
       api_key=  os.getenv("GROQ_API_KEY"),
-      base_url= os.getenv("GROQ_BASE_URL")
+      base_url= "https://api.groq.com/openai/v1"
     )
 
   @property
