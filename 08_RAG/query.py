@@ -4,7 +4,7 @@ from helpers.EmbeddingModel import HugginFaceEmbeddingModel
 from helpers.Client import GroqClient
 from openai import OpenAI
 from openai.resources.chat.completions.completions import  ChatCompletion
-
+from helpers.getEnv import get_env_variable
 print("lib loaded")
 
 client:OpenAI = GroqClient().client
@@ -22,7 +22,7 @@ query = input(" > : ")
 
 #vector db
 # qdraclient 
-qclient = QdrantClient(url="http://localhost:6333")
+qclient = QdrantClient(url=get_env_variable("QC_URL"))
 #vector db load
 print("db loaded")
 
@@ -40,7 +40,7 @@ SYSTEM_PROMPT = f"""
   You are AI assitent. Solve query using following context only.
 
   context : {
-    query
+    result
   }
 
 """
@@ -50,11 +50,14 @@ res:ChatCompletion  =  client.chat.completions.create(
     model="openai/gpt-oss-20b",
     messages=[
       {
+        "role":"system",
+        "content" : SYSTEM_PROMPT
+      },
+      {
         "role":"user",
-        "content" : "current weather of surat?"
+        "content" : query
       }
     ]
   )
 
-
-#api
+print("response : ",res.choices[0].message.content)
