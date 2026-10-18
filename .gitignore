@@ -12,3 +12,7 @@ wheels/
 .env
 
 ai-work
+
+*__init__.py
+
+17_agentic_ai_coding
